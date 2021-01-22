@@ -1,5 +1,8 @@
 package project;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.io.Closeable;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -18,6 +21,7 @@ public class ClientHandler implements Runnable, Closeable {
     private final byte[] buffer;
     private final EchoServer server;
     private CommandController commandController;
+    private static final Logger LOGGER = LogManager.getLogger(ClientHandler.class.getName());
 
     public ClientHandler(Socket socket, EchoServer server) throws IOException, SQLException, ClassNotFoundException {
         this.dbController = new DbController();
@@ -42,7 +46,7 @@ public class ClientHandler implements Runnable, Closeable {
                 if (bytesRead == -1) {
                     server.kickMe(this);
                     server.broadCast("Client " + userName + " leave!" + "\n\r");
-                    System.out.println("SERVER: CLIENT LEAVE");
+                    LOGGER.info("SERVER: CLIENT LEAVE");
                     break;
                 }
                 String messageFromClient = new String(buffer, 0, bytesRead, StandardCharsets.UTF_8);
@@ -50,6 +54,7 @@ public class ClientHandler implements Runnable, Closeable {
                     continue;
                 }
                 if (messageFromClient.startsWith("/")) {
+                    LOGGER.info("CLIENT SEND COMMAND: " + messageFromClient);
                     if (!messageFromClient.startsWith("/private")) {
                         server.broadCast(commandController.giveAnswer(messageFromClient, this, server));
                     } else {
@@ -57,10 +62,10 @@ public class ClientHandler implements Runnable, Closeable {
                     }
                     continue;
                 }
-                System.out.println("Received from " + userName + ": " + messageFromClient);
+                LOGGER.info("Received from " + userName + ": " + messageFromClient);
                 server.broadCast(userName + ": " + messageFromClient + "\n\r");
             } catch (IOException | SQLException e) {
-                System.err.println("Exception while read");
+                LOGGER.info("Exception while read");
                 break;
             }
         }

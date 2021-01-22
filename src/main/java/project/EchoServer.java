@@ -1,5 +1,8 @@
 package project;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -11,6 +14,7 @@ public class EchoServer {
 
     private boolean running;
     private ConcurrentLinkedDeque<ClientHandler> clients = new ConcurrentLinkedDeque<>();
+    private static final Logger LOGGER = LogManager.getLogger(EchoServer.class.getName());
 
     public ConcurrentLinkedDeque<ClientHandler> getClients() {
         return clients;
@@ -20,17 +24,17 @@ public class EchoServer {
         running = true;
         ExecutorService executorService = Executors.newCachedThreadPool();
         try(ServerSocket server = new ServerSocket(8189)) {
-            System.out.println("Server started!");
+            LOGGER.info("Server started!");
             while (running) {
-                System.out.println("Server is waiting connection");
+                LOGGER.info("Server is waiting connection");
                 Socket socket = server.accept();
-                System.out.println("Client accepted!");
+                LOGGER.info("Client accepted!");
+
                 ClientHandler handler = new ClientHandler(socket, this);
                 executorService.submit(handler);
             }
         } catch (Exception e) {
-            e.printStackTrace();
-//            System.out.println("Server crashed");
+            LOGGER.info("Server crashed");
         }
     }
 
