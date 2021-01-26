@@ -1,0 +1,47 @@
+[2021-01-22 11:00:17 INFO  EchoServer: <init> 31] User accepted
+[2021-01-22 11:11:42 INFO  EchoServer: <init> 31] User accepted
+[2021-01-22 11:14:07 INFO  EchoServer: <init> 28] Server started!
+[2021-01-22 11:14:07 INFO  EchoServer: <init> 31] Server is waiting connection
+[2021-01-22 11:14:27 INFO  EchoServer: <init> 33] Client accepted!
+[2021-01-22 11:14:27 INFO  EchoServer: <init> 31] Server is waiting connection
+[2021-01-22 11:19:07 INFO  EchoServer: <init> 27] Server started!
+[2021-01-22 11:19:07 INFO  EchoServer: <init> 29] Server is waiting connection
+[2021-01-22 11:19:15 INFO  EchoServer: <init> 31] Client accepted!
+[2021-01-22 11:19:15 INFO  EchoServer: <init> 29] Server is waiting connection
+[2021-01-22 11:19:51 INFO  EchoServer: <init> 27] Server started!
+[2021-01-22 11:19:51 INFO  EchoServer: <init> 29] Server is waiting connection
+[2021-01-22 11:20:00 INFO  EchoServer: <init> 31] Client accepted!
+[2021-01-22 11:20:01 INFO  EchoServer: <init> 29] Server is waiting connection
+[2021-01-22 11:24:12 INFO  EchoServer: <init> 27] Server started!
+[2021-01-22 11:24:12 INFO  EchoServer: <init> 29] Server is waiting connection
+[2021-01-22 11:24:19 INFO  EchoServer: <init> 31] Client accepted!
+[2021-01-22 11:24:19 INFO  EchoServer: <init> 29] Server is waiting connection
+[2021-01-22 11:24:19 INFO  ClientHandler: run 57] CLIENT SEND COMMAND
+[2021-01-22 11:27:44 INFO  EchoServer: <init> 27] Server started!
+[2021-01-22 11:27:44 INFO  EchoServer: <init> 29] Server is waiting connection
+[2021-01-22 11:27:56 INFO  EchoServer: <init> 31] Client accepted!
+[2021-01-22 11:27:57 INFO  EchoServer: <init> 29] Server is waiting connection
+[2021-01-22 11:27:57 INFO  ClientHandler: run 57] CLIENT SEND COMMAND/auth user pass
+[2021-01-22 11:28:01 INFO  ClientHandler: run 65] Received from hoo: sdf
+[2021-01-22 11:28:03 INFO  ClientHandler: run 65] Received from hoo: sdf
+[2021-01-22 11:28:05 INFO  ClientHandler: run 65] Received from hoo: gfh
+[2021-01-22 11:28:08 INFO  ClientHandler: run 57] CLIENT SEND COMMAND/online
+[2021-01-22 11:28:59 INFO  ClientHandler: run 57] CLIENT SEND COMMAND/quit
+[2021-01-22 11:29:07 INFO  ClientHandler: run 68] Exception while read
+[2021-01-22 11:30:54 INFO  EchoServer: <init> 27] Server started!
+[2021-01-22 11:30:54 INFO  EchoServer: <init> 29] Server is waiting connection
+[2021-01-22 11:31:03 INFO  EchoServer: <init> 31] Client accepted!
+[2021-01-22 11:31:03 INFO  EchoServer: <init> 29] Server is waiting connection
+[2021-01-22 11:31:03 INFO  ClientHandler: run 57] CLIENT SEND COMMAND: /auth user paass
+[2021-01-22 11:31:21 INFO  ClientHandler: run 57] CLIENT SEND COMMAND: /auth user pass
+[2021-01-22 11:31:28 INFO  ClientHandler: run 65] Received from hoo: sdfsdf
+[2021-01-22 11:31:29 INFO  ClientHandler: run 65] Received from hoo: sdf
+[2021-01-22 11:31:30 INFO  ClientHandler: run 65] Received from hoo: dsf
+[2021-01-22 11:31:36 INFO  ClientHandler: run 57] CLIENT SEND COMMAND: /changename sdfd
+[2021-01-22 11:31:39 INFO  ClientHandler: run 65] Received from sdfd: dsf
+[2021-01-22 11:31:41 INFO  ClientHandler: run 65] Received from sdfd: dsf
+[2021-01-22 11:31:46 INFO  ClientHandler: run 57] CLIENT SEND COMMAND: /private df
+[2021-01-22 11:31:50 INFO  ClientHandler: run 57] CLIENT SEND COMMAND: /online
+[2021-01-22 11:31:53 INFO  ClientHandler: run 57] CLIENT SEND COMMAND: /quit
+[2021-01-22 11:31:53 INFO  CommandController: giveAnswer 67] SERVER: CLIENT LEAVE
+[2021-01-22 11:32:05 INFO  ClientHandler: run 68] Exception while read

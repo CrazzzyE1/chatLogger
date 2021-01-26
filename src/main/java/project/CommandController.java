@@ -1,5 +1,8 @@
 package project;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.concurrent.ConcurrentLinkedDeque;
@@ -7,6 +10,8 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 public class CommandController {
     DbController db;
     ConcurrentLinkedDeque<ClientHandler> clTmp;
+    private static final Logger LOGGER = LogManager.getLogger(CommandController.class.getName());
+
 
     public CommandController(DbController db) {
         this.db = db;
@@ -16,7 +21,6 @@ public class CommandController {
         String[] tmp = clientMessage.split(" ");
         String oldName = clientHandler.getUserName();
         String command = tmp[0];
-        System.out.println("Команда в команд контроллере: " + command);
         clientMessage = clientMessage.substring(command.length()).trim();
         switch (command) {
 
@@ -60,6 +64,7 @@ public class CommandController {
                 break;
             }
             case "/quit": {
+                LOGGER.info("SERVER: CLIENT LEAVE");
                 clientHandler.sendMessage("quit - accept");
                 server.kickMe(clientHandler);
                 server.broadCast("Client " + clientHandler.getUserName() + " leave!" + "\n\r");
