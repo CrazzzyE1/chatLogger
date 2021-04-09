@@ -2,28 +2,28 @@ package project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
+import org.springframework.stereotype.Component;
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class AuthController implements Initializable {
+@Component
+public class AuthController{
 
     public TextField login;
     public TextField password;
-    Client client;
+
+    public Client client;
 
     public void enter(ActionEvent actionEvent) throws IOException {
 
         if(!login.getText().trim().isEmpty() && !password.getText().trim().isEmpty()){
             try {
                 client = Client.getInstance();
+            System.out.println(client);
                 client.write("/auth " + login.getText().trim() + " " + password.getText().trim());
             } catch (IOException e) {
                 System.out.println("Server not found");
@@ -60,15 +60,5 @@ public class AuthController implements Initializable {
         stage.setResizable(false);
         stage.show();
         login.getScene().getWindow().hide();
-    }
-
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-//        try {
-//            client = Client.getInstance();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 }

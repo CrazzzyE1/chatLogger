@@ -10,6 +10,8 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
+import server.FileHistoryService;
 
 import java.io.*;
 import java.net.URL;
@@ -17,6 +19,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
+@Component
 public class ChatController implements Initializable {
 
     public TextArea output;
@@ -33,10 +36,6 @@ public class ChatController implements Initializable {
             input.clear();
         }
     }
-
-//    public void read(TextArea output) throws IOException {
-//        client.read(output);
-//    }
 
     public void change() {
         input.appendText(m1.getText());
@@ -78,7 +77,6 @@ public class ChatController implements Initializable {
 
         try {
             client = Client.getInstance();
-//            read(output);
             client.read(output);
             client.readThreadStart();
         } catch (IOException e) {

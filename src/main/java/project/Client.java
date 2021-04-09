@@ -1,6 +1,7 @@
 package project;
 
 import javafx.scene.control.TextArea;
+import org.springframework.stereotype.Component;
 
 import java.io.Closeable;
 import java.io.DataInputStream;
@@ -9,7 +10,8 @@ import java.io.IOException;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 
-public class Client implements Closeable {
+@Component
+public class Client implements Closeable{
 
     private static Client instance;
 
@@ -28,13 +30,12 @@ public class Client implements Closeable {
         return instance;
     }
 
-    private Client() throws IOException {
+    public Client() throws IOException {
         this.socket = new Socket("localhost", 8189);
         this.in = new DataInputStream(socket.getInputStream());
         this.out = new DataOutputStream(socket.getOutputStream());
         this.buffer = new byte[256];
         this.flag = true;
-
     }
 
     public void write(String msg) {

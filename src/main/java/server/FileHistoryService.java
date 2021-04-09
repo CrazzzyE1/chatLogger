@@ -1,4 +1,7 @@
-package project;
+package server;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,9 +10,11 @@ import java.nio.file.StandardOpenOption;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
+@Scope("prototype")
 public class FileHistoryService implements HistoryService {
 
-    private static FileHistoryService instanse;
+    private static FileHistoryService instance;
     private String path = "C:\\Program Project\\GeekBrainsEducation2\\JAVA2\\src\\company\\lesson7\\history.txt";
 
     private FileHistoryService() {
@@ -17,8 +22,8 @@ public class FileHistoryService implements HistoryService {
     }
 
     public static FileHistoryService getInstance() {
-        return instanse == null ?
-                new FileHistoryService() : instanse;
+        return instance == null ?
+                new FileHistoryService() : instance;
     }
 
 

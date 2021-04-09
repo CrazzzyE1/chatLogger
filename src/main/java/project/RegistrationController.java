@@ -8,11 +8,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+@Component
 public class RegistrationController implements Initializable {
 
     Client client;

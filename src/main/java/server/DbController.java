@@ -1,9 +1,14 @@
-package project;
+package server;
+
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.io.Closeable;
 import java.io.IOException;
 import java.sql.*;
 
+@Component
+@Scope
 public class DbController implements Closeable {
     private Connection connection;
     private Statement statement;
